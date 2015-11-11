@@ -9,9 +9,38 @@ public class Tree {
     currentSize = 0;
     treeArray = new Node[maxSize];
   }
-   public Node find(int key) {  
-      // implementación aquí
-	  return null;		// para que no de errores antes de implementar
+   public Node find(int key)
+   {  
+    Node ROOT=treeArray[0];
+    if(ROOT==null)
+    {
+        System.out.println("El �rbol est� vacio");
+        return null;
+    }     
+    
+    while(treeArray[i]!=null)
+    {
+        if(key==treeArray[i].getKey())
+        {
+            //currentSize=i;
+            return treeArray[i];
+        }
+        else
+        {
+            if(key<=treeArray[i].getKey())
+            {
+                currentSize=i;
+                i=2*(currentSize)+1;
+            }
+            else
+            {
+                currentSize=i;
+                i=2*(currentSize)+2;
+            }
+        }
+    }
+    
+    		// para que no de errores antes de implementar
    }
     public void insert(int key, double dData) {
        // implementación aquí
