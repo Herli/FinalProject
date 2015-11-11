@@ -1,5 +1,6 @@
 package proyecto;
 public class Tree {
+<<<<<<< HEAD
     private Node[] treeArray;
     private int maxSize;
     private int currentSize;
@@ -44,6 +45,51 @@ public class Tree {
     }
     public void insert(int key, double dData)
     {
+=======
+  private Node[] treeArray;
+  private int maxSize;
+  private int currentSize;
+  private int i = 0;		 // i es el índice del arreglo en todos los métodos
+  public Tree(int maxSize) {
+    this.maxSize = maxSize;
+    currentSize = 0;
+    treeArray = new Node[maxSize];
+  }
+   public Node find(int key)
+   {  
+    Node ROOT=treeArray[0];
+    if(ROOT==null)
+    {
+        System.out.println("El �rbol est� vacio");
+        return null;
+    }     
+    
+    while(treeArray[i]!=null)
+    {
+        if(key==treeArray[i].getKey())
+        {
+            //currentSize=i;
+            return treeArray[i];
+        }
+        else
+        {
+            if(key<=treeArray[i].getKey())
+            {
+                currentSize=i;
+                i=2*(currentSize)+1;
+            }
+            else
+            {
+                currentSize=i;
+                i=2*(currentSize)+2;
+            }
+        }
+    }
+    
+    		// para que no de errores antes de implementar
+   }
+    public void insert(int key, double dData) {
+>>>>>>> a00bf8095ed4015386f999c8c5f8cf7e6102527d
        // implementación aquí
 
     }
