@@ -4,19 +4,19 @@ public class Tree
     private Node[] treeArray;
     private int maxSize;
     private int currentSize;
-    private int i = 0;		 // i es el índice del arreglo en todos los métodos
+    private int i = 0;		 // i es el Ã­ndice del arreglo en todos los mÃ©todos
     public Tree(int maxSize)
     {
         this.maxSize = maxSize;
-        currentSize = 0;
+        //currentSize = 0;
         treeArray = new Node[maxSize];
     }
     public Node find(int key)
-    {  
+    {   
         Node ROOT=treeArray[0];
         if(ROOT==null)
         {
-            System.out.println("El �rbol est� vacio");
+            System.out.println("El árbol está vacio");
             return null;
         }     
 
@@ -24,44 +24,80 @@ public class Tree
         {
             if(key==treeArray[i].getKey())
             {
-                //currentSize=i;
                 return treeArray[i];
             }
             else
             {
-                if(key<=treeArray[i].getKey())
+                if(key<treeArray[i].getKey())
                 {
-                    currentSize=i;
-                    i=2*(currentSize)+1;
+                    //Left
+                    i=2*(i)+1;
                 }
                 else
                 {
-                    currentSize=i;
-                    i=2*(currentSize)+2;
+                    //Right
+                    i=2*(i)+2;
                 }
             }
         }
-        return null;	// para que no de errores antes de implementar
+        return null;
     }
     
     public void insert(int key, double dData)
     {
-       // implementación aquí
-        
+        Node newNode = new Node(key,dData);
+        Node ROOT=treeArray[0];
+        Node current;
+        if(ROOT==null)
+        {
+            ROOT= newNode;
+        }
+        else
+        {
+            current=treeArray[i];
+            
+            while(true)
+            {
+                if(key<current.getKey())
+                {
+                    //Left
+                    i=2*(i)+1;
+                    current=treeArray[i];
+                    
+                    if(treeArray[i]==null)
+                    {
+                        current=newNode;
+                        return;
+                    }
+                }
+                else
+                {
+                    //Right
+                    i=2*(i)+2;
+                    current=treeArray[i];
+                    
+                    if(treeArray[i]==null)
+                    {
+                        current=newNode;
+                        return;
+                    }
+                }
+            }
+        }
     }
     public Node minimum()
     {
-      // implementación aquí  
+      // implementaciÃ³n aquÃ­  
           return null;		// para que no de errores antes de implementar
     }
     public Node maximum()
     {
-      // implementación aquí  
+      // implementaciÃ³n aquÃ­  
           return null;		// para que no de errores antes de implementar
     } 
     public boolean delete(int key)
     {
-     // implementación aquí
+     // implementaciÃ³n aquÃ­
           return false;		// para que no de errores antes de implementargit
     }
     public void displayTree()
@@ -81,4 +117,3 @@ public class Tree
         System.out.println();
     }
 }
-
